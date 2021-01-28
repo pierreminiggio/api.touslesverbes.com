@@ -15,6 +15,7 @@
         "sort-packages": true
     },
     "require": {
+        "pierreminiggio/abstract-enum": "^1.0",
         "pierreminiggio/database-fetcher": "^1.0"
     }
 }

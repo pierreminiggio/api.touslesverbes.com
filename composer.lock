@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a751fb23839da1514f6cf7369f09f418",
+    "content-hash": "4efb3967e123eedcd1b0b5ab27dca7d0",
     "packages": [
         {
             "name": "neutronstars/database-sql",
@@ -48,6 +48,43 @@
                 "source": "https://github.com/Neutron-Pro/neutronstars-database-sql/tree/1.0.3"
             },
             "time": "2021-01-20T14:59:24+00:00"
+        },
+        {
+            "name": "pierreminiggio/abstract-enum",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/php-abstract-enum.git",
+                "reference": "b51aee130d8bc1c96c613c1178c44279dbb2db80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/php-abstract-enum/zipball/b51aee130d8bc1c96c613c1178c44279dbb2db80",
+                "reference": "b51aee130d8bc1c96c613c1178c44279dbb2db80",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.11"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\Enum\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "description": "An Abstract Enum For PHP",
+            "support": {
+                "issues": "https://github.com/pierreminiggio/php-abstract-enum/issues",
+                "source": "https://github.com/pierreminiggio/php-abstract-enum/tree/1.0.0"
+            },
+            "time": "2021-01-28T20:15:11+00:00"
         },
         {
             "name": "pierreminiggio/database-connection",
