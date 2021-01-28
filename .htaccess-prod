@@ -10,5 +10,5 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L,NE]
 
 # On récupère l'action, le contrôleur
 # Ce n'est pas appliqué dans le cas où l'on va chercher un fichier
-RewriteCond %{REQUEST_URI}  !\.(php|css|js|html?|jpg|gif|png|pdf|woff|woff2)$
+RewriteCond %{REQUEST_URI}  !\.(php|css|js|html?|jpg|json|gif|png|pdf|woff|woff2)$
 RewriteRule ^ public/index.php [L]
