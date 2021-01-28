@@ -52,6 +52,34 @@
               }
             }
           }
+        },
+        "post": {
+          "security": [
+            {
+              "verbAuth": []
+            }
+          ],
+          "tags": [
+            "Verb"
+          ],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/new_verb"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "$ref": "#/components/responses/verb_list_response"
+            }
+          }
         }
       },
       "/verbs/{uuid}": {
@@ -86,19 +114,25 @@
       }
     },
     "components": {
-      "securitySchemes": {
-        "verbAuth": {
-          "type": "http",
-          "scheme": "bearer"
+      "responses": {
+        "verb_list_response": {
+          "description": "A collection of verbs",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/verb"
+                }
+              }
+            }
+          }
         }
       },
       "schemas": {
-        "verb": {
+        "new_verb": {
           "type": "object",
           "properties": {
-            "uuid": {
-              "type": "string"
-            },
             "name": {
               "type": "string",
               "example": "automatiser"
@@ -112,6 +146,28 @@
               ]
             }
           }
+        },
+        "verb": {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/components/schemas/new_verb"
+            },
+            {
+              "type": "object"
+            }
+          ],
+          "properties": {
+            "uuid": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "securitySchemes": {
+        "verbAuth": {
+          "type": "http",
+          "scheme": "bearer"
         }
       }
     }
