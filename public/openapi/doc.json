@@ -53,6 +53,36 @@
             }
           }
         }
+      },
+      "/verbs/{uuid}": {
+        "get": {
+          "tags": [
+            "Verb"
+          ],
+          "parameters": [
+            {
+              "name": "uuid",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/verb"
+                  }
+                }
+              }
+            },
+            "404": {}
+          }
+        }
       }
     },
     "components": {
@@ -61,8 +91,6 @@
           "type": "http",
           "scheme": "bearer"
         }
-      },
-      "responses": {
       },
       "schemas": {
         "verb": {
