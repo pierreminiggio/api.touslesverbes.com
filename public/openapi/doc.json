@@ -65,7 +65,7 @@
       "responses": {
       },
       "schemas": {
-        "Verb": {
+        "verb": {
           "type": "object",
           "properties": {
             "name": {
