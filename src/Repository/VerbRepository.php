@@ -18,7 +18,6 @@ class VerbRepository
     public function addNewVerbsIfMissing(array $verbs, int $sourceId): void
     {
         foreach ($verbs as $verb) {
-            var_dump($verb); die();
 
             $verbParameters = ['verb' => $verb];
             $findVerbQuery = [
