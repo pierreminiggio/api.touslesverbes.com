@@ -18,7 +18,7 @@ class DocController
             <head>
                 <meta charset="utf-8">
                 <title>API Documentation</title>
-                <link rel="stylesheet" href="{{ URL::to('/openapi/swagger-ui.css') }}">
+                <link rel="stylesheet" href="{$this->host}/public/openapi/swagger-ui.css">
             </head>
 
             <body>
@@ -27,7 +27,7 @@ class DocController
                 <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
                 <script>
                 window.onload = function() {
-                    window.ui = SwaggerUIBundle({url: "{$this->host}/openapi/doc.json", dom_id: '#swagger-ui'})
+                    window.ui = SwaggerUIBundle({url: "{$this->host}/public/openapi/doc.json", dom_id: '#swagger-ui'})
                 }
                 </script>
             </body>
