@@ -1,12 +1,16 @@
 {
     "openapi": "3.0.0",
     "info": {
-      "title": "Auth",
+      "title": "French Verbs API Doc",
       "version": "1.0.0"
     },
     "tags": [
       {
         "name": "Doc",
+        "description": ""
+      },
+      {
+        "name": "Verb",
         "description": ""
       }
     ],
@@ -29,213 +33,54 @@
           }
         }
       },
-      "/register": {
-        "post": {
+      "/verbs": {
+        "get": {
           "tags": [
-            "Auth"
+            "Verb"
           ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserCreate"
-                }
-              }
-            }
-          },
-          "responses": {
-            "201": {},
-            "400": {
-              "$ref": "#/components/responses/BadRequest"
-            }
-          }
-        }
-      },
-      "/login": {
-        "post": {
-          "tags": [
-            "Auth"
-          ],
-          "requestBody": {
-            "required": true,
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserLogin"
-                }
-              }
-            }
-          },
           "responses": {
             "200": {
               "content": {
                 "application/json": {
                   "schema": {
-                    "$ref": "#/components/schemas/UserToken"
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/verb"
+                    }
                   }
                 }
               }
-            },
-            "400": {
-              "$ref": "#/components/responses/BadRequest"
-            },
-            "401": {}
+            }
           }
         }
       }
     },
     "components": {
       "securitySchemes": {
-        "userAuth": {
+        "verbAuth": {
           "type": "http",
           "scheme": "bearer"
         }
       },
       "responses": {
-        "BadRequest": {
-          "description": "Bad Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/BadRequestError"
-              }
-            }
-          }
-        },
-        "NotFound": {
-          "description": "Not Found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotFoundError"
-              }
-            }
-          }
-        },
-        "SuccessEmpty": {
-          "description": "No content"
-        },
-        "Success": {
-          "description": "Success",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Success"
-              }
-            }
-          }
-        }
       },
       "schemas": {
-        "UserCreate": {
+        "Verb": {
           "type": "object",
           "properties": {
-            "login": {
+            "name": {
               "type": "string",
-              "example": "pseudo"
+              "example": "automatiser"
             },
-            "email": {
-              "type": "string",
-              "example": "pseudo@gmail.com"
-            },
-            "password": {
-              "type": "string",
-              "example": "kjfgnd.kf12iFg"
-            }
-          }
-        },
-        "UserLogin": {
-          "type": "object",
-          "properties": {
-            "login": {
-              "type": "string",
-              "example": "pseudo ou email"
-            },
-            "password": {
-              "type": "string",
-              "example": "kjfgnd.kf12iFg"
-            }
-          }
-        },
-        "UserToken": {
-          "type": "object",
-          "properties": {
-            "token": {
-              "type": "string",
-              "example": "f1bTeRRRLpwhPuoq3SYcSOuVNBAU4x"
-            }
-          }
-        },
-        "test": {
-          "type": "object",
-          "properties": {
-            "param1": {
-              "type": "string",
-              "example": "param1"
-            },
-            "date": {
-              "type": "string",
-              "format": "date-time",
-              "example": "2020-09-09T12:33:20+00:00"
-            },
-            "enum": {
+            "group": {
               "type": "integer",
               "enum": [
                 1,
                 2,
                 3
-              ],
-              "description": "enum"
-            }
-          }
-        },
-        "BadRequestError": {
-          "type": "object",
-          "required": [
-            "error"
-          ],
-          "properties": {
-            "error": {
-              "type": "string",
-              "enum": [
-                "bad_content",
-                "missing_parameter"
-              ]
-            },
-            "message": {
-              "$ref": "#/components/schemas/message"
-            }
-          }
-        },
-        "NotFoundError": {
-          "type": "object",
-          "required": [
-            "error"
-          ],
-          "properties": {
-            "error": {
-              "type": "string",
-              "enum": [
-                "resource_not_found"
               ]
             }
           }
-        },
-        "Success": {
-          "type": "object",
-          "required": [
-            "message"
-          ],
-          "properties": {
-            "message": {
-              "$ref": "#/components/schemas/message"
-            }
-          }
-        },
-        "message": {
-          "type": "string",
-          "example": "ceci est un message"
         }
       }
     }
