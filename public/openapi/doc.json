@@ -6,11 +6,29 @@
     },
     "tags": [
       {
-        "name": "Auth",
+        "name": "Doc",
         "description": ""
       }
     ],
     "paths": {
+      "/doc": {
+        "get": {
+          "tags": [
+            "Doc"
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "text/html": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "/register": {
         "post": {
           "tags": [
