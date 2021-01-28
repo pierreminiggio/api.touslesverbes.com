@@ -1,0 +1,138 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a751fb23839da1514f6cf7369f09f418",
+    "packages": [
+        {
+            "name": "neutronstars/database-sql",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Neutron-Pro/neutronstars-database-sql.git",
+                "reference": "fd9814cdc865e45f085da30cb27ea1ce39d7cfe4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Neutron-Pro/neutronstars-database-sql/zipball/fd9814cdc865e45f085da30cb27ea1ce39d7cfe4",
+                "reference": "fd9814cdc865e45f085da30cb27ea1ce39d7cfe4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "NeutronStars\\Database\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "NeutronStars",
+                    "email": "pro@neutronstars.fr"
+                }
+            ],
+            "description": "Sql connector library for PHP",
+            "support": {
+                "issues": "https://github.com/Neutron-Pro/neutronstars-database-sql/issues",
+                "source": "https://github.com/Neutron-Pro/neutronstars-database-sql/tree/1.0.3"
+            },
+            "time": "2021-01-20T14:59:24+00:00"
+        },
+        {
+            "name": "pierreminiggio/database-connection",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/database-connection.git",
+                "reference": "ff55d9d7ea01f29855b2f8dba8e56ded661188ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/database-connection/zipball/ff55d9d7ea01f29855b2f8dba8e56ded661188ac",
+                "reference": "ff55d9d7ea01f29855b2f8dba8e56ded661188ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\DatabaseConnection\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "description": "Interact with a SQL Database",
+            "support": {
+                "issues": "https://github.com/pierreminiggio/database-connection/issues",
+                "source": "https://github.com/pierreminiggio/database-connection/tree/1.2.1"
+            },
+            "time": "2020-12-27T17:59:34+00:00"
+        },
+        {
+            "name": "pierreminiggio/database-fetcher",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/database-fetcher.git",
+                "reference": "873cc2d103d49188f61b17a34a4b46cfba218e4e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/database-fetcher/zipball/873cc2d103d49188f61b17a34a4b46cfba218e4e",
+                "reference": "873cc2d103d49188f61b17a34a4b46cfba218e4e",
+                "shasum": ""
+            },
+            "require": {
+                "neutronstars/database-sql": "^1.0",
+                "php": ">=8.0.0",
+                "pierreminiggio/database-connection": "^1.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\DatabaseFetcher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "description": "Interact with a SQL Database",
+            "support": {
+                "issues": "https://github.com/pierreminiggio/database-fetcher/issues",
+                "source": "https://github.com/pierreminiggio/database-fetcher/tree/1.0.0"
+            },
+            "time": "2021-01-17T10:03:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
