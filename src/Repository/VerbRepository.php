@@ -41,6 +41,27 @@ class VerbRepository
 
                 $queriedVerbs = $this->fetcher->query(...$findVerbQuery);
             }
+
+            $verbId = (int) $queriedVerbs[0]['id'];
+            $verbSourceParameters = ['verb_id' => $verbId, 'source_id' => $sourceId];
+            $queriedSourceIds = $this->fetcher->query(
+                $this->fetcher
+                    ->createQuery('verb_source')
+                    ->select('id')
+                    ->where('verb_id = :verb_id AND source_id = :source_id')
+                ,
+                $verbSourceParameters
+            );
+
+            if (count($queriedSourceIds) === 0) {
+                $this->fetcher->exec(
+                    $this->fetcher
+                        ->createQuery('verb_source')
+                        ->insertInto('verb_id, source_id', ':verb_id, :source_id')
+                    ,
+                    $verbSourceParameters
+                );
+            }
         }
     }
 }
