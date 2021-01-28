@@ -111,6 +111,36 @@
             "404": {}
           }
         }
+      },
+      "/verbs/search/{needle}": {
+        "get": {
+          "tags": [
+            "Verb"
+          ],
+          "parameters": [
+            {
+              "name": "needle",
+              "in": "path",
+              "description": "",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/verb"
+                  }
+                }
+              }
+            },
+            "404": {}
+          }
+        }
       }
     },
     "components": {
