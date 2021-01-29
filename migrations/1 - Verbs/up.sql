@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `verb` (
   `id` int(11) NOT NULL,
-  `name` varchar(25) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `group_id` tinyint(4) NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
