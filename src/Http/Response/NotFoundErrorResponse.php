@@ -2,7 +2,7 @@
 
 namespace App\Http\Response;
 
-class NotFoundErrorResponse extends Response
+class NotFoundErrorResponse extends HttpResponse
 {
     public function __construct()
     {

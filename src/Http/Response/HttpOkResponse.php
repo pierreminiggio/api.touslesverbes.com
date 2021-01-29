@@ -2,7 +2,7 @@
 
 namespace App\Http\Response;
 
-class HttpOkResponse extends Response
+class HttpOkResponse extends HttpResponse
 {
     public function __construct(string $content = '')
     {
