@@ -22,11 +22,7 @@ class CryptedVerbRepository
         $verbs = [];
 
         foreach ($queriedVerbs as $queriedVerb) {
-            $verbs[] = new Verb(
-                $this->crypter->crypt($queriedVerb['id']),
-                $queriedVerb['name'],
-                $queriedVerb['group_id'] !== null ? ((int) $queriedVerb['group_id']) : null
-            );
+            $verbs[] = $this->createVerbEntityFromQuery($queriedVerb);
         }
 
         return $verbs;
@@ -62,5 +58,32 @@ class CryptedVerbRepository
         $queriedVerb = $queriedVerbs[0];
 
         return new Verb($uuid, $queriedVerb['name'], $queriedVerb['group_id']);
+    }
+
+    public function findOneByName(string $name): ?Verb
+    {
+        $queriedVerbs = $this->fetcher->query(
+            $this->fetcher
+                ->createQuery('verb')
+                ->select('*')
+                ->where('name = :name')
+            ,
+            ['name' => $name]
+        );
+
+        if (count($queriedVerbs) === 0) {
+            return null;
+        }
+
+        return $this->createVerbEntityFromQuery($queriedVerbs[0]);
+    }
+
+    private function createVerbEntityFromQuery(array $queriedVerb): Verb
+    {
+        return new Verb(
+            $this->crypter->crypt($queriedVerb['id']),
+            $queriedVerb['name'],
+            $queriedVerb['group_id'] !== null ? ((int) $queriedVerb['group_id']) : null
+        );
     }
 }

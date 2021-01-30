@@ -6,12 +6,14 @@ use App\Controller\DocController;
 use App\Controller\ErrorController;
 use App\Controller\Verb\AllVerbsController;
 use App\Controller\Verb\FindVerbController;
+use App\Controller\Verb\SearchController;
 use App\Crypt\CrypterFactory;
 use App\Database\DatabaseFetcherFactory;
 use App\Http\MethodEnum;
 use App\Http\Response\RedirectionResponse;
 use App\Http\Response\Response;
 use App\Repository\CryptedVerbRepository;
+use App\Repository\VerbRepository;
 
 class Router
 {
@@ -33,12 +35,14 @@ class Router
             $httpMethod === MethodEnum::GET && $path === '/verbs' => (new AllVerbsController(
                 new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
             ))(),
-            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/exact-search') === 0 => 'WIP',
-            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/search') === 0 => 'WIP',
+            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/exact-search/') === 0 => (new SearchController(
+                new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
+            ))->findOneByName(substr($path, 20)),
+            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/search/') === 0 => 'WIP',
             $httpMethod === MethodEnum::GET && strpos($path, '/verbs/') === 0 => (new FindVerbController(
                 new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
             ))(substr($path, 7)),
-            default => (new ErrorController())->error404(),
+            default => (new ErrorController())->error404()
         };
 
         $response->execute();

@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Verb;
 use App\Enum\SourceEnum;
 use PierreMiniggio\DatabaseFetcher\DatabaseFetcher;
 
