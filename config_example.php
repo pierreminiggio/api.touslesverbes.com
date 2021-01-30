@@ -4,5 +4,6 @@ return [
     'host' => '',
     'database' => 'verb',
     'username' => '',
-    'password' => ''
+    'password' => '',
+    'cryptKey' => 'traktoupèl'
 ];

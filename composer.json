@@ -16,6 +16,7 @@
     },
     "require": {
         "pierreminiggio/abstract-enum": "^1.0",
-        "pierreminiggio/database-fetcher": "^1.0"
+        "pierreminiggio/database-fetcher": "^1.0",
+        "pierreminiggio/simple-crypter": "^1.0"
     }
 }

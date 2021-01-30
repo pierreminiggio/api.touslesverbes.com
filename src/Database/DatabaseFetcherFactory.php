@@ -2,6 +2,7 @@
 
 namespace App\Database;
 
+use App\Config\ConfigLoader;
 use PierreMiniggio\DatabaseConnection\DatabaseConnection;
 use PierreMiniggio\DatabaseFetcher\DatabaseFetcher;
 
@@ -14,14 +15,7 @@ class DatabaseFetcherFactory
     {
 
         if (! isset(static::$fetcher)) {
-            $config = require __DIR__
-                . DIRECTORY_SEPARATOR
-                . '..'
-                . DIRECTORY_SEPARATOR
-                . '..'
-                . DIRECTORY_SEPARATOR
-                . 'config.php'
-            ;
+            $config = ConfigLoader::load();
             static::$fetcher = new DatabaseFetcher(new DatabaseConnection(
                 $config['host'],
                 $config['database'],

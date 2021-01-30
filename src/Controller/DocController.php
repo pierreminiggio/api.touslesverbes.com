@@ -31,9 +31,9 @@ class DocController
                 }
                 </script>
             </body>
-        </html>
+            </html>
         HTML;
-        
+
         return new HttpOkResponse($view);
     }
 }

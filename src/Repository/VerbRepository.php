@@ -18,7 +18,6 @@ class VerbRepository
     public function addNewVerbsIfMissing(array $verbs, int $sourceId): void
     {
         foreach ($verbs as $verb) {
-
             $verbParameters = ['verb' => $verb];
             $findVerbQuery = [
                 $this->fetcher

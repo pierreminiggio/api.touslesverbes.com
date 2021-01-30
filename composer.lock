@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4efb3967e123eedcd1b0b5ab27dca7d0",
+    "content-hash": "8472010a02ac87490f2c16693e6d0a1c",
     "packages": [
         {
             "name": "neutronstars/database-sql",
@@ -161,6 +161,47 @@
                 "source": "https://github.com/pierreminiggio/database-fetcher/tree/1.0.0"
             },
             "time": "2021-01-17T10:03:16+00:00"
+        },
+        {
+            "name": "pierreminiggio/simple-crypter",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pierreminiggio/simple-crypter.git",
+                "reference": "79087d8c6bd5ba78010a6fb7a289a8f3f5a79921"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pierreminiggio/simple-crypter/zipball/79087d8c6bd5ba78010a6fb7a289a8f3f5a79921",
+                "reference": "79087d8c6bd5ba78010a6fb7a289a8f3f5a79921",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "10.0.x-dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PierreMiniggio\\SimpleCrypter\\": "src/",
+                    "PierreMiniggio\\SimpleCrypterTest\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Pierre MINIGGIO",
+                    "email": "pierre@miniggiodev.fr"
+                }
+            ],
+            "description": "Simple Crypter",
+            "support": {
+                "issues": "https://github.com/pierreminiggio/simple-crypter/issues",
+                "source": "https://github.com/pierreminiggio/simple-crypter/tree/1.0.0"
+            },
+            "time": "2021-01-30T12:45:49+00:00"
         }
     ],
     "packages-dev": [],
