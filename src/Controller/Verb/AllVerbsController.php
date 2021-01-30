@@ -13,7 +13,7 @@ class AllVerbsController
     public function __construct(private CryptedVerbRepository $repository)
     {}
     
-    public function __invoke()//: Response
+    public function __invoke(): Response
     {
         $basePath = __DIR__
             . DIRECTORY_SEPARATOR
