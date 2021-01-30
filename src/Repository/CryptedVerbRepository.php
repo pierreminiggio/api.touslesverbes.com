@@ -17,15 +17,9 @@ class CryptedVerbRepository
      */
     public function findAll(): array
     {
-        $queriedVerbs = $this->fetcher->query($this->fetcher->createQuery('verb')->select('*'));
-
-        $verbs = [];
-
-        foreach ($queriedVerbs as $queriedVerb) {
-            $verbs[] = $this->createVerbEntityFromQuery($queriedVerb);
-        }
-
-        return $verbs;
+        return $this->createVerbEntitiesFromQuery(
+            $this->fetcher->query($this->fetcher->createQuery('verb')->select('*'))
+        );
     }
 
     public function findOneByUuid(string $uuid): ?Verb
@@ -76,6 +70,35 @@ class CryptedVerbRepository
         }
 
         return $this->createVerbEntityFromQuery($queriedVerbs[0]);
+    }
+
+    /**
+     * @return Verb[]
+     */
+    public function searchByName(string $name): array
+    {
+        return $this->createVerbEntitiesFromQuery($this->fetcher->query(
+            $this->fetcher
+                ->createQuery('verb')
+                ->select('*')
+                ->where('name LIKE :name')
+            ,
+            ['name' => '%' . $name . '%']
+        ));
+    }
+
+    /**
+     * @return Verb[]
+     */
+    private function createVerbEntitiesFromQuery(array $queriedVerbs): array
+    {
+        $verbs = [];
+
+        foreach ($queriedVerbs as $queriedVerb) {
+            $verbs[] = $this->createVerbEntityFromQuery($queriedVerb);
+        }
+
+        return $verbs;
     }
 
     private function createVerbEntityFromQuery(array $queriedVerb): Verb

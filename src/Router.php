@@ -38,7 +38,9 @@ class Router
             $httpMethod === MethodEnum::GET && strpos($path, '/verbs/exact-search/') === 0 => (new SearchController(
                 new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
             ))->findOneByName(substr($path, 20)),
-            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/search/') === 0 => 'WIP',
+            $httpMethod === MethodEnum::GET && strpos($path, '/verbs/search/') === 0 => (new SearchController(
+                new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
+            ))->searchByName(substr($path, 14)),
             $httpMethod === MethodEnum::GET && strpos($path, '/verbs/') === 0 => (new FindVerbController(
                 new CryptedVerbRepository(CrypterFactory::make(), DatabaseFetcherFactory::make())
             ))(substr($path, 7)),

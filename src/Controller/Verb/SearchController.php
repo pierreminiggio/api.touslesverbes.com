@@ -23,4 +23,9 @@ class SearchController
 
         return new HttpOkResponse(json_encode($verb));
     }
+
+    public function searchByName(string $name): Response
+    {
+        return new HttpOkResponse(json_encode($this->repository->searchByName($name)));
+    }
 }
