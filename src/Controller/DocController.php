@@ -19,6 +19,11 @@ class DocController
                 <meta charset="utf-8">
                 <title>API Documentation</title>
                 <link rel="stylesheet" href="{$this->host}/public/openapi/swagger-ui.css">
+                <style>
+                    #operations-Verb-get_verbs .try-out {
+                        display: none;
+                    }
+                </style>
             </head>
 
             <body>
