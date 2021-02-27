@@ -7,9 +7,7 @@ $groups = [
 ];
 
 foreach ($groups as $groupId => $sourceUrl) {
-    $curl = curl_init($sourceUrl);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($curl);
+    $response = getHtml($sourceUrl);
 
     $buttonCount = count(explode('class="aPagination"', $response));
     $lastPage = $buttonCount > 1 ? $buttonCount - 2 : 1;
@@ -18,9 +16,7 @@ foreach ($groups as $groupId => $sourceUrl) {
 
     for ($page = 1; $page <= $lastPage; $page++) {
 
-        $curl = curl_init($sourceUrl . '?page=' . $page);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($curl);
+        $response = getHtml($sourceUrl, $page);
 
         $liSplit = explode('<li style="">', $response);
 
@@ -42,4 +38,14 @@ foreach ($groups as $groupId => $sourceUrl) {
     }
 
     var_dump($verbs);
+}
+
+function getHtml(string $url, ?int $page = null): string
+{
+    $curl = curl_init($url . ($page ? '?page=' . $page : ''));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    return $response;
 }
