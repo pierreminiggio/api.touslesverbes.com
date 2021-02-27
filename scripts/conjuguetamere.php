@@ -5,7 +5,7 @@ curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($curl);
 
 $buttonCount = count(explode('class="aPagination"', $response));
-$lastPage = $buttonCount ? $buttonCount - 2 : 1;
+$lastPage = $buttonCount > 1 ? $buttonCount - 2 : 1;
 
 $verbs = [];
 
